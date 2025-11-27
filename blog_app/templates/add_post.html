@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Create a New Post</h1>
+
+    <form method="POST">
+        {{ form.hidden_tag() }}
+
+        <div>
+            {{ form.title.label }}
+            {{ form.title(size=50) }}
+            {% if form.title.errors %}
+                <ul class="errors">
+                    {% for error in form.title.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+
+        <div>
+            {{ form.body.label }}
+            {{ form.body(rows=10, cols=50) }}
+            {% if form.body.errors %}
+                <ul class="errors">
+                    {% for error in form.body.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+
+        <div>
+            {{ form.submit() }}
+        </div>
+    </form>
+
+    <p><a href="{{ url_for('index') }}">Back to Home</a></p>
+{% endblock %}
