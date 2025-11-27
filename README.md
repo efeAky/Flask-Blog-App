@@ -46,7 +46,13 @@ If `requirements.txt` is not present, manually install:
 pip install Flask Flask-SQLAlchemy Flask-Login Flask-WTF
 ```
 
-#### 4. Run the application
+#### 4. Navigate to the application folder
+
+```bash
+cd blog_app
+```
+
+#### 5. Run the application
 
 ```bash
 python app.py
@@ -54,7 +60,7 @@ python app.py
 
 The app will start on **http://127.0.0.1:5000**.
 
-#### 5. Open in your browser
+#### 6. Open in your browser
 
 Navigate to **http://127.0.0.1:5000** to access the blog.
 
@@ -66,13 +72,70 @@ Navigate to **http://127.0.0.1:5000** to access the blog.
 - For production, consider using a proper database (e.g., PostgreSQL) instead of SQLite
 - Do not run with `debug=True` in a production environment
 
+## Project Structure
+
+```
+Flask-Blog-App/
+├── blog_app/              # Main application folder
+│   ├── app.py            # Flask application entry point
+│   ├── templates/        # HTML templates
+│   ├── static/           # CSS, JavaScript, images
+│   └── instance/         # SQLite database (auto-generated)
+├── venv/                 # Virtual environment
+├── requirements.txt      # Python dependencies
+├── LICENSE              # MIT License
+└── README.md            # This file
+```
+
 ## Features
 
-- User authentication (registration and login)
-- Create, read, update, and delete blog posts
-- SQLite database for data persistence
-- Flask-WTF forms with validation
+- **User authentication** - Secure registration and login system
+- **Create, read, update, and delete blog posts** - Full CRUD functionality
+- **SQLite database** - Lightweight data persistence
+- **Flask-WTF forms** - Form validation and CSRF protection
+- **User-specific content** - Users can only edit/delete their own posts
+
+## Technologies Used
+
+- **Flask** - Web framework
+- **Flask-SQLAlchemy** - Database ORM
+- **Flask-Login** - User session management
+- **Flask-WTF** - Form handling and validation
+- **SQLite** - Database
+
+## Troubleshooting
+
+### Common Issues
+
+**"Module not found" errors:**
+```bash
+# Make sure virtual environment is activated
+venv\Scripts\activate  # Windows
+source venv/bin/activate  # macOS/Linux
+
+# Reinstall dependencies
+pip install -r requirements.txt
+```
+
+**"Template not found" errors:**
+- Ensure you're running the app from inside the `blog_app` folder
+- Check that the `templates/` folder exists
+
+**Database errors:**
+- Delete the `instance/` folder and restart the app to recreate the database
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-This project is open source and available for educational purposes.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Author
+
+Created by [efeAky](https://github.com/efeAky)
+
+## Acknowledgments
+
+Built with Flask and designed for educational purposes to demonstrate web application development with Python.
